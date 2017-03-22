@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function stworzTabelke()
+			{
+				var myTable = document.createElement('table');
+				myTable.setAttribute('style','text-align:center');
+				var wiersze = document.getElementById('wiersze').value;
+				var kolumny = document.getElementById('kolumny').value;
+				
+				for (var i = 0; i < wiersze; i++)
+				{
+					var tr = document.createElement('tr');
+					for (var j = 0; j < kolumny; j++)
+					{
+						var td = document.createElement('td');
+						td.setAttribute('style','border: 1px solid black;width:50px;height:50px');
+						tr.appendChild(td);
+					}
+					
+					myTable.appendChild(tr);
+				}
+
+				document.getElementById('plansza').innerHTML = '';
+				document.getElementById('plansza').appendChild(myTable);
+			}
+		</script>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div style="text-align:center">
+			Podaj ilość kolumn:
+			<input type="number" id="kolumny"/></br>
+			Podaj ilość wierszy:
+			<input type="number" id="wiersze"/>
+			<br/>
+			<button onclick="stworzTabelke()">Stwórz tabelkę</button>
+			<br/><br/>
+			<center id="plansza"></center>
+		</div>
+	</body>
+</html>
